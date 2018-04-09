@@ -1,1 +1,6 @@
-'tail -f /var/log/syslog' &
+tail -f /var/log/syslog &
+
+# or 
+# tail -f /var/log/syslog
+# ctrl + z
+# bg

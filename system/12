@@ -1,1 +1,1 @@
-find -type d -name '[!.]*' -exec du -sh {} + | sort -h
+du -sh /var && du -sh /var/*

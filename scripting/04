@@ -1,0 +1,16 @@
+echo "if [ ! -f /etc/crontab_md5 ]
+then
+	md5sum /etc/crontab > /etc/crontab_md5
+fi
+
+md5sum /etc/crontab > /etc/crontab_tmp
+CHANGE=\$(diff /etc/crontab_md5 /etc/crontab_tmp)
+
+if [ "\$CHANGE" != "" ]
+then
+	mail -s "Modified" root < /etc/crontab
+	md5sum /etc/crontab > /etc/crontab_md5
+rm /etc/crontab_tmp
+fi" >> ~/04
+
+echo '0 0 * * * root sh ~/04 2>&1' | crontab

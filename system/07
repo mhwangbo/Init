@@ -1,1 +1,1 @@
-cat /var/run/sshd/pid
+ps aux | grep ssh | head -n 1
